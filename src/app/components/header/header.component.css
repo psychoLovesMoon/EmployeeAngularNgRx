@@ -1,0 +1,9 @@
+.navbar{
+    background-color: var(--background-primary);
+    font-size: large;
+}
+
+.dropdown-item{
+    font-size: medium;
+}
+

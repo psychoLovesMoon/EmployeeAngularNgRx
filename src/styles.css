@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+:root {
+    --background-primary: orange;
+}
+
+
+body{
+    padding-left: 2px;
+    padding-right: 20px;
+}
+
+.themeOrange{
+    background-color: orange;
+}
+
+.themeBlue{
+    background-color: rgb(123, 241, 241);
+}
+
+.themeGrey{
+    background-color: grey;
+}

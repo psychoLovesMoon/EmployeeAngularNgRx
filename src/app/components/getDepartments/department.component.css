@@ -1,0 +1,17 @@
+.table{
+    background-color: var(--background-primary);
+    margin-top: 4%;
+    margin-left: 25%;
+    font-size: medium;
+    width: 800px;
+}
+th{
+    padding-left:5%;
+}
+td{
+    padding-left:5%;
+}
+.header{
+    text-align: center;
+    margin-top: 2%; 
+}

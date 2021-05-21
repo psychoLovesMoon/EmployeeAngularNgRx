@@ -1,0 +1,65 @@
+<div id='message'></div>
+<div class="container">
+<form [ngClass]="{'themeGrey': greyTheme, 'themeOrange': orangeTheme, 'themeBlue': blueTheme }"  
+    class="form" [formGroup]="form" (ngSubmit)="addEmployee()">
+    <h1 style="text-align: center;">Employee Details</h1>
+    <hr>
+    <!-- <div class="form-group">
+        <label for="id" class="textColor">Employee Id</label><span style="color: red;">*</span>
+        <input type="number" formControlName="id" placeholder="Employee ID" id="id" class="form-control"> 
+        
+        <span *ngIf = "id.touched && id.invalid" class="alert">
+            <span *ngIf = "id.errors?.required">Id required</span>
+            <span *ngIf = "id.errors?.min">Id cant be negative or zero</span>
+        </span> 
+    </div> -->
+    <div class="form-group">
+        <label for="name" class="textColor">Name </label><span style="color: red;">*</span>
+        <input type="text" formControlName="name" placeholder="Employee Name" id="name" class="form-control">  
+        <span *ngIf = "name.touched && name.invalid" class="alert">
+            <span *ngIf = "name.errors?.required">Name required</span>
+            <span *ngIf = "name.errors?.pattern">Name should contain only alphabets</span>
+        </span> 
+    </div>
+    <div class="form-group">
+        <label for="salary" class="textColor">Salary</label><span style="color: red;">*</span>
+        <input type="number" formControlName="salary" placeholder="Salary" id="salary" class="form-control">  
+        <span *ngIf = "salary.touched && salary.invalid" class="alert">
+            <span *ngIf = "salary.errors?.required">Salary required</span>
+            <span *ngIf = "salary.errors?.min">Should be min 1000</span>
+            <span *ngIf = "salary.errors?.max">Should be less than 1000000</span>
+        </span> 
+    </div>
+    <b>Department</b><span style="color: red;">*</span> <br>
+    <select formControlName="departmentId" class="selectpicker">
+        <option *ngFor="let department of departments" value="{{department.id}}">{{department.departmentName}}</option>
+    </select>
+    <span *ngIf = "departmentId.touched && departmentId.invalid" class="alert">
+        <span *ngIf = "departmentId.errors?.required">Select a department</span>
+    </span> 
+    <br><br>
+    <b>Gender</b><span style="color: red;">*</span><br>
+    <div class="form-check">
+        
+        <input formControlName="gender" checked type="radio" id="male" name="gender" value="male">
+        <label for="male"></label>Male<br>
+        <input formControlName="gender" type="radio" id="female" name="gender" value="female">
+        <label for="female"></label>Female<br>
+        <!-- <input class="form-check-input" formControlName="gender" value="male" type="radio" name="gender" id="male">
+        <label class="form-check-label" for="male">
+        Male  
+        </label><br>
+        <input class="form-check-input"  type="radio" value="female" name="gender" id="female">
+        <label class="form-check-label" for="female">
+            Female
+        </label> -->
+    </div>
+    <!-- <span *ngIf = "gender.touched && gender.invalid" class="alert">
+        <span *ngIf = "gender.errors?.required">Select a gender</span>
+    </span>  -->
+    <div class="form-check">
+        
+    </div>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-primary">submit</button>
+</form>
+</div>

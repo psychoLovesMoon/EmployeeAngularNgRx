@@ -1,0 +1,18 @@
+.form{
+    margin-left: 23%;
+    margin-top: 3%;
+    margin-right: 3%;
+    background-color: var(--background-primary);
+    width: 400px;
+    height: 450px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    border-radius: 8px;
+    font-size: medium;
+}
+
+.btn{
+    margin-top: 2%;
+    margin-left: 40%;
+}

@@ -1,0 +1,58 @@
+<form class="form" [formGroup]="form" (ngSubmit)="updateEmployee()">
+    <h1 style="text-align: center;">Update Employee Details</h1>
+    <hr>
+    <div class="form-group" *ngIf='employee'>
+        <label for="id" class="textColor">Employee Id</label>
+        <input readonly type="number" placeholder="{{employee.id}}" id="id" class="form-control">  
+    </div>
+    <div class="form-group">
+        <label for="name" class="textColor">Name</label>
+        <input type="text" formControlName="name"  id="name" class="form-control">  
+        <span *ngIf = "name.touched && name.invalid" class="alert">
+            <span *ngIf = "name.errors?.required">Name required</span>
+            <span *ngIf = "name.errors?.pattern">Name should contain only alphabets</span>
+        </span> 
+    </div>
+    <div class="form-group">
+        <label for="salary" class="textColor">Salary </label>
+        <input type="number" formControlName="salary" placeholder="{{employee.salary}}" id="salary" class="form-control">  
+        <span *ngIf = "salary.touched && salary.invalid" class="alert">
+            <span *ngIf = "salary.errors?.required">Salary required</span>
+            <span *ngIf = "salary.errors?.min">Should be min 1000</span>
+            <span *ngIf = "salary.errors?.max">Should be less than 1000000</span>
+        </span> 
+    </div>
+    <b>Department:</b> <br>
+    <select formControlName="departmentId"  class="selectpicker">
+        <option>--Select--</option>
+        <option *ngFor="let department of departments" 
+                value="{{department.id}}" 
+                >
+            {{department.departmentName}}
+        </option>
+
+    </select>
+    <span *ngIf = "departmentId.touched && departmentId.invalid" class="alert">
+        <span *ngIf = "departmentId.errors?.required">Select a department</span>
+    </span> 
+    <br><br>
+    <b>Gender:</b> <br>
+    <div class="form-check">
+        <input formControlName="gender" type="radio" id="male" name="gender" value="male">
+        <label for="male"></label>Male<br>
+        <input formControlName="gender" type="radio" id="female" name="gender" value="female">
+        <label for="female"></label>Female<br>
+        <!-- <input class="form-check-input" formControlName="gender" value="male" type="radio" name="gender" id="male">
+        <label class="form-check-label" for="male">
+          Male
+        </label><br>
+        <input class="form-check-input"  type="radio" value="female" name="gender" id="female">
+        <label class="form-check-label" for="female">
+            Female
+        </label> -->
+    </div>
+    <div class="form-check">
+        
+    </div>
+    <button type="submit" class="btn btn-lg btn-primary">Update</button>
+</form>
